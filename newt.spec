@@ -4,7 +4,7 @@
 #
 Name     : newt
 Version  : 0.52.20
-Release  : 1
+Release  : 2
 URL      : http://releases.pagure.org/newt/newt-0.52.20.tar.gz
 Source0  : http://releases.pagure.org/newt/newt-0.52.20.tar.gz
 Summary  : A development library for text mode user interfaces

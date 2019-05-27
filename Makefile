@@ -1,5 +1,5 @@
 PKG_NAME := newt
-URL := http://releases.pagure.org/newt/newt-0.52.20.tar.gz
-
+URL = http://releases.pagure.org/newt/newt-0.52.21.tar.gz
+ARCHIVES = 
 
 include ../common/Makefile.common

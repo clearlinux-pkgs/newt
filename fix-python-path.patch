@@ -1,0 +1,15 @@
+--- a/Makefile.in	2019-11-27 14:58:11.781927023 -0800
++++ b/Makefile.in	2019-11-27 14:58:43.101929137 -0800
+@@ -154,9 +154,9 @@
+ 	ln -sf $(LIBNEWTSH) $(instroot)/$(libdir)/$(LIBNEWTSONAME)
+ 	[ -n "$(WHIPTCLSO)" ] && install -m 755 whiptcl.$(SOEXT) $(instroot)/$(libdir) || :
+ 	[ -n "$(PYTHONVERS)" ] && for ver in $(PYTHONVERS) ; do \
+-	   [ -d $(instroot)/$(libdir)/$$ver/site-packages ] || install -m 755 -d $(instroot)/$(libdir)/$$ver/site-packages ;\
+-	   install -m 755 $$ver/_snack.$(SOEXT) $(instroot)/$(libdir)/$$ver/site-packages ;\
+-	   install -m 644 snack.py $(instroot)/$(libdir)/$$ver/site-packages ;\
++	   [ -d $(instroot)/usr/lib/$$ver/site-packages ] || install -m 755 -d $(instroot)/usr/lib/$$ver/site-packages ;\
++	   install -m 755 $$ver/_snack.$(SOEXT) $(instroot)/usr/lib/$$ver/site-packages ;\
++	   install -m 644 snack.py $(instroot)/usr/lib/$$ver/site-packages ;\
+ 	done || :
+ 
+ Makefile: configure.ac

@@ -4,7 +4,7 @@
 #
 Name     : newt
 Version  : 0.52.21
-Release  : 7
+Release  : 8
 URL      : https://releases.pagure.org/newt/newt-0.52.21.tar.gz
 Source0  : https://releases.pagure.org/newt/newt-0.52.21.tar.gz
 Summary  : A development library for text mode user interfaces
@@ -46,6 +46,7 @@ Group: Development
 Requires: newt-lib = %{version}-%{release}
 Requires: newt-bin = %{version}-%{release}
 Provides: newt-devel = %{version}-%{release}
+Requires: newt = %{version}-%{release}
 Requires: newt = %{version}-%{release}
 
 %description dev
@@ -113,7 +114,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574899553
+export SOURCE_DATE_EPOCH=1583186647
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -133,7 +135,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make TEST_VERBOSE=1 test
 
 %install
-export SOURCE_DATE_EPOCH=1574899553
+export SOURCE_DATE_EPOCH=1583186647
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/newt
 cp %{_builddir}/newt-0.52.21/COPYING %{buildroot}/usr/share/package-licenses/newt/ba8966e2473a9969bdcab3dc82274c817cfd98a1

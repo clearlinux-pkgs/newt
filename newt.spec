@@ -4,7 +4,7 @@
 #
 Name     : newt
 Version  : 0.52.21
-Release  : 20
+Release  : 21
 URL      : https://releases.pagure.org/newt/newt-0.52.21.tar.gz
 Source0  : https://releases.pagure.org/newt/newt-0.52.21.tar.gz
 Summary  : A development library for text mode user interfaces
@@ -46,7 +46,6 @@ Group: Development
 Requires: newt-lib = %{version}-%{release}
 Requires: newt-bin = %{version}-%{release}
 Provides: newt-devel = %{version}-%{release}
-Requires: newt = %{version}-%{release}
 Requires: newt = %{version}-%{release}
 
 %description dev
@@ -114,16 +113,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583186647
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1635775765
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static --with-python=python$(python3 -V | awk '{print $2}' | sed 's/\.[0-9]*$//g')
 make  %{?_smp_mflags}
 
@@ -135,7 +133,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make TEST_VERBOSE=1 test
 
 %install
-export SOURCE_DATE_EPOCH=1583186647
+export SOURCE_DATE_EPOCH=1635775765
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/newt
 cp %{_builddir}/newt-0.52.21/COPYING %{buildroot}/usr/share/package-licenses/newt/ba8966e2473a9969bdcab3dc82274c817cfd98a1
